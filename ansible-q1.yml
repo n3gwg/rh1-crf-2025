@@ -2,16 +2,16 @@
 - hosts: server1.5kh76.sandbox4049.opentlc.com
   vars:
     user_details:
-        - { name:' Annabelle' }
-        - { name:' Bob'  }
-        - { name:' Carl'  }
-        - { name:' Dyson'  }
-        - { name:' Evert'  }
-        - { name:' Frank'  }
-        - { name:' Gerry'  }
-        - { name:' Harold'  }
-        - { name:' Isabella'  }
-        - { name:' Jameson'  }
+        - { name: 'Annabelle' }
+        - { name: 'Bob'  }
+        - { name: 'Carl'  }
+        - { name: 'Dyson'  }
+        - { name: 'Evert'  }
+        - { name: 'Frank'  }
+        - { name: 'Gerry'  }
+        - { name: 'Harold'  }
+        - { name: 'Isabella'  }
+        - { name: 'Jameson'  }
   become: true
   tasks:
     - name: test
