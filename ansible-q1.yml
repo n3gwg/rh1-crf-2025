@@ -1,6 +1,7 @@
 ---
 - hosts: server2
   vars:
+    password: '@#FD12'
     user_details:
         - { name: 'Annabelle' }
         - { name: 'Bob'  }
@@ -20,7 +21,7 @@
     - name: more complex items to add several users
       user:
         name: "{{ item.name }}"
-        password: '“@#FD12”'
+        password: "{{ password | password_hash('sha512') }}"
         state: present
       with_items: "{{ user_details }}"
 
