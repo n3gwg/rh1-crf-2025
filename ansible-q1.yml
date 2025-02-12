@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: server2
   vars:
     user_details:
         - { name: 'Annabelle' }
@@ -16,12 +16,13 @@
   tasks:
     - name: test
       ansible.builtin.ping:
-#   - name: more complex items to add several users
-#     user:
-#       name: "{{ item.name }}"
-#       password: '“@#FD12”'
-#       state: present
-#     with_items: "{{ user_details }}"
+
+    - name: more complex items to add several users
+      user:
+        name: "{{ item.name }}"
+        password: '“@#FD12”'
+        state: present
+      with_items: "{{ user_details }}"
 
 #   - name: Set authorized key
 #     ansible.posix.authorized_key:
