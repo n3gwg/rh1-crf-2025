@@ -40,4 +40,22 @@
         state: present
         key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFN90Xtfjxqs2ZpO0VqR1jr92mJiTx3IaEl/F+LiOZJK"
       with_items: "{{ user_details }}"
+
+    - name: adding existing user '{{ user }}' to group sudo
+      user:
+        name: '{{ item.user }}'
+        groups: '{{ item.group }}'
+        append: yes
+      with_items:
+        - { group: 'Sales', user: 'Frank' }
+        - { group: 'Sales', user: 'Annabelle' }
+        - { group: 'Support', user: 'Carl' }
+        - { group: 'Support', user: 'Dyson' }
+        - { group: 'Support', user: 'Gerry' }
+        - { group: 'Services', user: 'Jameson' }
+        - { group: 'Services', user: 'Isabella' }
+        - { group: 'IT', user: 'Harold' }
+        - { group: 'IT', user: 'Evert' }
+        - { group: 'IT', user: 'Bob' }
+
 ...
