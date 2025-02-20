@@ -1,7 +1,7 @@
 ---
 - hosts: server2
   vars:
-    password: '@#FD12'
+    password: '***PLACE_PASSWORD_HERE***'
     user_details:
         - { name: 'Annabelle' }
         - { name: 'Bob'  }
@@ -39,7 +39,7 @@
       ansible.posix.authorized_key:
         user: "{{ item.name }}"
         state: present
-        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFN90Xtfjxqs2ZpO0VqR1jr92mJiTx3IaEl/F+LiOZJK"
+        key: "***ssh-rsa128 SuperMagicKeyGoesHERE***"
       with_items: "{{ user_details }}"
 
     - name: adding existing user '{{ user }}' to group sudo
